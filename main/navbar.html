@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar-wrapper">
+        <div>
+            <ul class="navbar-flex">
+                <li><a id="a_inicio" onclick="module.changePage('inicio')"></a></li>
+                <li><a id="a_acerca" onclick="module.changePage('acerca')"></a></li>
+                <li><a id="a_servicios" onclick="module.changePage('servicios')"></a></li>
+                <li><a id="a_contacto" onclick="module.changePage('contacto')"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="inicio" class="linkClass dnone active">
+    </div>
+    <div id="acerca" class="linkClass dnone">
+    </div>
+    <div id="servicios" class="linkClass dnone">
+    </div>
+    <div id="contacto" class="linkClass dnone">
+    </div>
+    <script type="text/javascript">
+        const module = {};
+    </script>
+    <script type="module">
+        import {changePage} from '../js/navbar.js';
+        module.changePage = changePage;
+
+    </script>
+</body>
+</html>
