@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar-wrapper">
+        <button id="g_inicio" onclick="module.change('inicio')"></button>
+        <button id="g_proyectos" onclick="module.change('proyectos')"></button>
+        <button id="g_nosotros" onclick="module.change('nosotros')"></button>
+        <button id="g_contacto" onclick="module.change('contacto')"></button>
+    </div>
+    <div id="inicio" class="globalClass window">
+        Inicio
+    </div>
+    <div id="proyectos" class="globalClass window2">
+        Proyectos
+    </div>
+    <div id="nosotros" class="globalClass window3">
+        Nosotros
+    </div>
+    <div id="contacto" class="globalClass window4">
+        Contacto
+    </div>
+</body>
+<script type="text/javascript">
+    const module = {};
+</script>
+<script type="module">
+    import {setConstants, change} from '../js/navbar.js';
+    module.change = change;
+    setConstants();
+</script>
+</html>

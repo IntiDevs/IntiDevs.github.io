@@ -1,88 +1,92 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-}
-
-ul {
-    list-style-type: none;
-}
-
-a {
-  cursor: pointer;
-}
-
 .navbar-wrapper {
-    padding: 15px 25px;
-    background: white;
-    border-radius: 10px;
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
-    transform: translateX(-50%);
-  }
-
-.navbar-flex { 
-    display: flex;
-    gap: 30px;
-}
-
-.dnone {
-    height: 100vh;
-    display: none;
-}
-  
-.active {
-    display: block;
-}
-
-#inicio {
-    background-color: black;
-}
-
-#acerca {
-    background: yellow;
-}
-
-#servicios {
-    background-color: green;
-}
-
-#contacto {
-    background: teal;
+  color: white;
+  padding: 15px 25px;
+  background: grey;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  z-index: 200;
 }
 
 .contenido {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    right: 0;
-    transition: bottom 0.5s;
-  }
-  
-  .mostrando {
-    bottom: 0;
-  }
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  transition: bottom 0.5s;
+}
 
-  .contenido-inicio {
-    background: black;
-  }
-  .contenido-acerca {
-    background: yellow;
-  }
-  .contenido-servicios {
-    background: green;
-  }
-  .contenido-contacto {
-    background: aqua;
-  }
+.globalClass {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  bottom: -100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.globalClass::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.globalClass::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.globalClass::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.active_inicio {
+  display: block;
+  background-color: aqua;
+  transition: 3s;
+  bottom: 0%;
+  z-index: 100;
+}
+
+.active_proyectos {
+  display: block;
+  background-color: black;
+  transition: 3s;
+  bottom: 0%;
+  z-index: 100;
+}
+
+.active_nosotros {
+  display: block;
+  background-color: purple;
+  transition: 3s;
+  bottom: 0%;
+  z-index: 100;
+}
+
+.active_contacto {
+  display: block;
+  background-color: pink;
+  transition: 3s;
+  bottom: 0%;
+  z-index: 100;
+}
+
+.hideClass {
+  bottom: -100%;
+  z-index: 10;
+}
+
+.showClass {
+  z-index: 100;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-none {
+  display: none !important;
+}

@@ -1,19 +1,76 @@
-import data from './constants/navbar.js'
+import data from './constants/app.js'
 
-function setConstants() {
-    document.getElementById('a_inicio').textContent = data.links.link1
-    document.getElementById('a_acerca').textContent = data.links.link2
-    document.getElementById('a_servicios').textContent = data.links.link3
-    document.getElementById('a_contacto').textContent = data.links.link4
-}
-
-export function changePage(idContent){
-    const page = document.getElementById(idContent)
-    const sections = document.getElementsByClassName('linkClass')
-    for (let index = 0; index < sections.length; index++) {
-        sections[index].classList.remove('active')
+export function setConstants() {
+    try {
+        
+        document.getElementById('g_inicio').textContent = data.links.link1
+        document.getElementById('g_proyectos').textContent = data.links.link2
+        document.getElementById('g_nosotros').textContent = data.links.link3
+        document.getElementById('g_contacto').textContent = data.links.link4
+    } catch (error) {
+        console.error(`error asignando variables globales, ${error}`)
     }
-    page.classList.add('active')
 }
 
-setConstants()
+export function change(val){
+        
+    let w
+    
+    switch (val) {
+        
+        case 'inicio':
+            
+            w = document.querySelector(".window");
+            w.classList.add('active_inicio');
+
+            hideSections(val);
+            
+            break;
+    
+        case 'proyectos':
+
+            w = document.querySelector('.window2');
+            w.classList.add('active_proyectos')
+
+            hideSections(val);
+
+            break;
+
+        case 'nosotros':
+
+            w = document.querySelector('.window3')
+            w.classList.add('active_nosotros')
+
+            hideSections(val);
+
+            break;
+
+        case 'contacto':
+        
+            w = document.querySelector('.window4');
+            w.classList.add('active_contacto')
+
+            hideSections(val);
+
+            break;
+            
+        default:
+            console.error('tas kgao manito')
+            break;
+    }        
+}
+
+function hideSections(val) {
+
+    const sections = document.getElementsByClassName('globalClass');
+    
+    for (let i = 0; i < sections.length; i++) {
+        if(sections[i].id == val){
+            sections[i].classList.remove('hideClass')
+            sections[i].classList.add('showClass')
+        } else {
+            sections[i].classList.add('hideClass')
+            sections[i].classList.remove('showClass')
+        }
+    }
+}
