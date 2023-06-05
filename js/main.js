@@ -2,7 +2,7 @@ import data from './constants/app.js'
 
 const sections = document.getElementsByClassName('globalClass');
 
-export function setConstants() {
+export function setNavConstants() {
 
     let n = 1
 
