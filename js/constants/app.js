@@ -5,5 +5,4 @@ export default {
         link3: 'Nosotros',
         link4: 'Contacto'
     },
-    transitionDelay: 3
 }
