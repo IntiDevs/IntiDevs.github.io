@@ -83,6 +83,7 @@ function setComponents() {
         fetch(route)
             .then(response => response.text())
             .then(html => {
+
                 const parser = new DOMParser()
                 const doc = parser.parseFromString(html, 'text/html')
                 const content = doc.body.innerHTML
@@ -111,9 +112,42 @@ function setComponents() {
 
                     component.appendChild(newScript)
                 })
+
+                const links = doc.querySelectorAll('link')
+
+                links.forEach(link => {
+
+                    const newLink = document.createElement('link')
+                    newLink.textContent = link.textContent
+
+                    const rel = link.getAttribute('rel')
+                    const href = link.getAttribute('href')
+
+                    if(rel) {
+
+                        newLink.setAttribute('rel', rel)
+                    }
+
+                    if(href) {
+
+                        newLink.setAttribute('href', href)
+                    }
+
+                    component.appendChild(newStyle)
+                })
+
+                const styles = doc.querySelectorAll('style')
+
+                styles.forEach(style => {
+
+                    const newStyle = document.createElement('style')
+                    newStyle.textContent = style.textContent
+
+                    component.appendChild(newStyle)
+                })
             })
             .catch(error => {
-                console.error(`Error al cargar html: ${error}`)
+                console.error(`error al cargar un componente: ${error}`)
             })
     }
 }
