@@ -1,4 +1,4 @@
-import data from './constants/app.js'
+import {links} from './constants/app.js'
 
 const sections = document.getElementsByClassName('globalClass');
 
@@ -8,7 +8,7 @@ export function setNavConstants() {
 
     for (let i = 0; i < sections.length; i++) {
                     
-        document.getElementById(`g_${sections[i].id}`).textContent  = data.links[`link${n}`]
+        document.getElementById(`g_${sections[i].id}`).textContent  = links[`link${n}`]
         n++
     }
 }
@@ -77,21 +77,45 @@ function hideSections(val) {
 function setComponents() {
 
     for (let i = 0; i < sections.length; i++) {
-
+        
         let route = `../components/${sections[i].id}.html`
-        let component = document.getElementById(sections[i].id)
 
         fetch(route)
             .then(response => response.text())
-            .then(data => {
-                component.innerHTML = data
+            .then(html => {
+                const parser = new DOMParser()
+                const doc = parser.parseFromString(html, 'text/html')
+                const content = doc.body.innerHTML
+                const component = document.getElementById(sections[i].id)
+
+                component.innerHTML = content
+
+                const scripts = doc.querySelectorAll('script')
+                
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script')
+                    newScript.textContent = script.textContent
+
+                    const src = script.getAttribute('src')
+                    const type = script.getAttribute('type')
+
+                    if(src) {
+
+                        newScript.setAttribute('src', src)
+                    }
+
+                    if(type) {
+
+                        newScript.setAttribute('type', type)
+                    }
+
+                    component.appendChild(newScript)
+                })
             })
             .catch(error => {
-                console.error(`Error al llamar componentes: ${error}`)
+                console.error(`Error al cargar html: ${error}`)
             })
     }
-
-    return 'success'
 }
 
 setComponents()
