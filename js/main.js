@@ -13,52 +13,14 @@ export function setNavConstants() {
     }
 }
 
-export function change(val){
-        
-    let w
-    
-    switch (val) {
-        
-        case 'inicio':
-            
-            w = document.querySelector(".window");
-            w.classList.add('active_inicio');
+export function change(val) {
 
-            hideSections(val);
-            
-            break;
-    
-        case 'proyectos':
+    const component = document.getElementById(val)
+    component.classList.add(`active_${val}`)
 
-            w = document.querySelector('.window2');
-            w.classList.add('active_proyectos')
+    hideSections(val)
 
-            hideSections(val);
-
-            break;
-
-        case 'nosotros':
-
-            w = document.querySelector('.window3')
-            w.classList.add('active_nosotros')
-
-            hideSections(val);
-
-            break;
-
-        case 'contacto':
-        
-            w = document.querySelector('.window4');
-            w.classList.add('active_contacto')
-
-            hideSections(val);
-
-            break;
-            
-        default:
-            console.error('tas kgao manito')
-            break;
-    }        
+    return 'success'
 }
 
 function hideSections(val) {
