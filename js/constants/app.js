@@ -14,6 +14,10 @@ export const proyectos = {
 
 }
 
+export const servicios = {
+    
+}
+
 export const nosotros = {
 
 }
