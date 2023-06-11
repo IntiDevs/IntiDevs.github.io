@@ -58,6 +58,14 @@
   z-index: 100;
 }
 
+.active_servicios {
+  display: block;
+  background-color: black;
+  transition: 3s;
+  bottom: 0%;
+  z-index: 100;
+}
+
 .active_nosotros {
   display: block;
   background-color: purple;
